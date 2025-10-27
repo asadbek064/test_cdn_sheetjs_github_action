@@ -1,0 +1,20 @@
+name: Test SheetJS CDN
+on: workflow_dispatch
+
+jobs:
+  test-cdn:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test CDN with curl
+        run: |
+          echo "Testing CDN access..."
+          curl -I https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz
+          
+      - name: Test CDN download
+        run: |
+          echo "Attempting download..."
+          curl -O https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz
+          
+      - name: Test npm install from CDN
+        run: |
+          npm install https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz
