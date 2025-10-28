@@ -22,9 +22,3 @@ jobs:
       - name: Test npm install from CDN
         run: |
           npm install https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz
-
-      - name: Notify Discord on failure
-        run: |
-          curl -H "Content-Type: application/json" \
-               -d '{"content":"CDN test failed: ${{ github.repository }} - https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"}' \
-               ${{ secrets.DISCORD_WEBHOOK_URL }}
